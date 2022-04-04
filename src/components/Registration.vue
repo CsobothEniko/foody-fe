@@ -20,13 +20,7 @@
     <div class="form-group">
         <label> Password </label>
         <input type="password" class="form-control" v-model="password" placeholder="Password" />
-    </div>
-
-    <div class="form-group">
-        <label> Confirm Password </label>
-        <input type="password" class="form-control" v-model="password_confirm" placeholder="Confirm Password" />
-    </div>
-
+    </div>    
 
     <button class="btn btn-primary btn-block">Registration </button>
 </form>
@@ -34,6 +28,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
     name: 'Registration',
@@ -43,14 +38,34 @@ export default {
             username: '',
             email: '',
             password: '',
-            password_confirm : ''
+           
         }
     },
     methods:{
         handleSubmit(){
+
+            const data = {
+                name: this.name,
+                username: this.username,
+                email: this.email,
+                password: this.password,
+                
+            };
             //így megjelenik a szöveg, nem frissíti folyamat az oldalt
             //e.preventDefault();
-            console.log('submitted!!!');
+            //console.log(data);
+             axios.post('http://localhost:8080/api/auth/signup', data)
+            .then(
+                res => {
+                    console.log(res)
+                } 
+            ).catch(
+                err => {
+                    console.log(err)
+                }
+            )
+
+           
         }
     }
 }

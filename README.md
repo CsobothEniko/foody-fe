@@ -1,4 +1,4 @@
-# jjj
+# foody-fe
 
 ## Project setup
 ```
