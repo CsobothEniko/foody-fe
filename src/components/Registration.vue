@@ -42,9 +42,9 @@ export default {
         }
     },
     methods:{
-        handleSubmit(){
+        async handleSubmit(){
 
-            const data = {
+            /*const data = {
                 name: this.name,
                 username: this.username,
                 email: this.email,
@@ -54,7 +54,7 @@ export default {
             //így megjelenik a szöveg, nem frissíti folyamat az oldalt
             //e.preventDefault();
             //console.log(data);
-             axios.post('http://localhost:8080/api/auth/signup', data)
+             axios.post('api/auth/signup', data)
             .then(
                 res => {
                     console.log(res)
@@ -63,7 +63,20 @@ export default {
                 err => {
                     console.log(err)
                 }
-            )
+            )*/
+
+           
+            await axios.post('api/auth/signup', {
+                    name: this.name,
+                    username: this.username,
+                    email: this.email,
+                    password: this.password
+                
+            });
+
+            //console.log(response);
+
+            this.$router.push('/login');
 
            
         }
