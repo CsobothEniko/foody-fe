@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <Nav />
+    <!--<Nav :username ="username"/>--> 
+    <Nav/>
 
     <div class="auth-wrapper">
         <div class="auth-inner">
+            <!--<router-view :username="username" />-->
             <router-view />
         </div>
     </div>
@@ -14,18 +16,42 @@
 <script>
 
 import Nav from './components/Nav.vue'
+import axios from 'axios';
 
 export default {
   name: 'App',
   components:{
     Nav    
-  }
+  },
+  /*data(){
+        return {
+            username: null
+        }
+    },*/
+    async created(){
+        const username = localStorage.getItem('username');
+        const password = localStorage.getItem('password');
+
+        const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
+        
+
+        const response = await axios.get('ch/random',{
+
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Basic '+token
+             }
+            
+        });        
+        //this.username = username;
+        this.$store.dispatch('username', response.data);
+    }
 }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
-
+/*
 * {
   box-sizing: border-box;
 }
@@ -100,6 +126,6 @@ body, html, #app, #root, .auth-wrapper{
 
 .forgot-password a {
   color: #167bff;
-}
+}*/
 
 </style>

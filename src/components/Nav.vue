@@ -1,16 +1,31 @@
 <template>
 <nav class="navbar navbar-expand navbar-light fixed-top">
       <div class="container"> 
-        <a href="/" class="navbar-brand"> Home </a>
+        <router-link to="/" class="navbar-brand"> Home </router-link>
         <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto" v-if="!username">
             <li class="nav-item">
-              <a href="login" class="nav-link">Login</a>
+              <router-link to="/login" class="nav-link">Login</router-link>
             </li>
             <li class="nav-item">
-              <a href="registration" class="nav-link">Registration</a>
+              <router-link to="/registration" class="nav-link">Registration</router-link>
             </li>
+            
           </ul>  
+
+          <ul class="navbar-nav ml-auto" v-if="username">
+            <li class="nav-item">
+              <a href="javascript:void(0)" @click="handleClick" class="nav-link">Logout</a>
+            </li> 
+            
+            <li class="nav-item">
+              <router-link to="/getProtein" class="nav-link">Protein</router-link>
+            </li>           
+            
+          </ul> 
+
+         
+
         </div>
       
       </div>
@@ -20,8 +35,27 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
+
 export default {
-    name:'Nav'
+    name:'Nav',
+    //props:['username'],
+    methods: {
+      handleClick(){
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+
+        this.$store.dispatch('username', null);
+        //this.$router.push('/');
+      //  const path = `/`;
+      /*const path = '/';
+        if (this.$route.path !== path) this.$router.push(path)*/
+        this.$router.push('/').catch(err => {});
+      }
+    },
+    computed: {
+      ...mapGetters(['username'])
+    }
 }
         
     

@@ -13,6 +13,11 @@
     </div>
 
     <button class="btn btn-primary btn-block">Login </button>
+
+    <p class="forgot-password text-right">
+        <router-link to="forgot"> Forgot Password </router-link>
+       
+    </p>
 </form>
 
 </template>
@@ -42,6 +47,13 @@ export default {
             localStorage.setItem('password',response.data.password);
 
             console.log(response);
+            
+            this.$store.dispatch('username', response.data.username);
+            //visszadob az home-ba
+            this.$router.push('/');
+
+
+
 
            
         }
