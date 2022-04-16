@@ -3,6 +3,7 @@
     <a href="addCh">New Ch</a>
     <b-list-group v-for="ch in ch" :key="ch.id">
       <b-list-group-item>
+        ID: {{ ch.id }}
         Ch Name: {{ ch.name }}
     
         <b-button variant="info" @click="editCh(ch.id)" class="mr-2">
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -24,18 +26,17 @@ export default {
     };
   },
   created() {
-    //auth
-    const username = localStorage.getItem('username');
-    const password = localStorage.getItem('password');
-    const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
-
+   
 
     this.updateList();
   },
   methods: {
     updateList() {
-      this.axios
-        .get('http://localhost:8080/ch/list', {
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+      const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
+
+      axios.get('http://localhost:8080/ch/list', {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
@@ -49,8 +50,14 @@ export default {
       this.$router.push("editCh/" + id)
     },
     deleteCh(id) {
-      this.axios
-        .delete("ch/" + id)
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+      const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
+
+      axios.delete("ch/" + id,{ headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Basic '+token
+             }})
         .then(() => {
           this.updateList();
           alert("success");

@@ -15,7 +15,11 @@
 </template>
 
 <script>
+
+import axios from 'axios';
 export default {
+  
+
   data() {
     return {
       id: null,
@@ -29,17 +33,16 @@ export default {
   },
   created() {
     this.id = this.$route.params.id;
-    this.getChById();
-
-    const username = localStorage.getItem('username');
-    const password = localStorage.getItem('password');
-    const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
+    this.getChById();    
 
   },
   methods: {
     getChById() {
-      this.axios
-        .get("ch/" + this.id, {
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+      const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
+
+      axios.get("ch/" + this.id, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
@@ -61,6 +64,10 @@ export default {
         });
     },
     saveCh() {
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+      const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64'); 
+
       let params = {
         id: this.id,
         name: this.name,
@@ -71,14 +78,13 @@ export default {
        
       }
 
-      this.axios
-        .put("ch/" + this.id,
+      axios.put("ch/update" + this.id,params,
          {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
              }            
-        }, params)
+        })
         .then(() => {
           alert("success");
           this.$router.push("/ch");

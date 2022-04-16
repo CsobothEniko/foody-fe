@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -40,13 +41,12 @@ export default {
        
       }
 
-      this.axios
-        .post("ch",{
+      axios.post("ch",params,{
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
              }            
-        }, params)
+        })
         .then(() => {
           alert("success");
           this.$router.push("ch");
