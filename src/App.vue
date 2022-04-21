@@ -28,7 +28,7 @@ export default {
             username: null
         }
     },*/
-    async created(){
+   /* async created(){
         const username = localStorage.getItem('username');
         const password = localStorage.getItem('password');
 
@@ -44,8 +44,8 @@ export default {
             
         });        
         //this.username = username;
-        this.$store.dispatch('username', response.data);
-    }
+      //  this.$store.dispatch('username', response.data);
+    }*/
 }
 </script>
 

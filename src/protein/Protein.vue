@@ -24,7 +24,13 @@
 
     <div class="form-group">
         <label> Type </label>
-        <input class="form-control" v-model="type" placeholder="Type" />
+        <!--<input class="form-control" v-model="type" placeholder="Type" > -->
+        <select name="Type:" v-model="type">
+            <option value="breakfast">BREAKFAST</option>
+            <option value="lunch">LUNCH</option>
+            <option value="dinner">DINNER</option>
+        </select>
+   
     </div>
 
     <button class="btn btn-primary btn-block" @click="saveProtein">Submit </button>
@@ -47,7 +53,8 @@ export default {
             quantity: '',
             quantityType: '',
             calorie: '',
-            type: ''
+            type: '',
+            types:['breakfast', 'lunch', 'dinner']
                 
         }
     },

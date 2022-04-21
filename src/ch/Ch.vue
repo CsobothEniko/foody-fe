@@ -1,10 +1,14 @@
 <template>
-  <div>
+  <div class="">
     <a href="addCh">New Ch</a>
     <b-list-group v-for="ch in ch" :key="ch.id">
       <b-list-group-item>
-        ID: {{ ch.id }}
-        Ch Name: {{ ch.name }}
+        Id: {{ ch.id }}
+        Name: {{ ch.name }}
+        Quantity: {{ ch.quantity }}
+        {{ ch.name }}
+        Calorie: {{ ch.calorie }}
+        Type: {{ ch.type }}
     
         <b-button variant="info" @click="editCh(ch.id)" class="mr-2">
           Edit

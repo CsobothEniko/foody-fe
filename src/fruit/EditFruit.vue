@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card :title="'Edit ch with id of ' + id">
+    <b-card :title="'Edit with id of ' + id">
       <b-form-input v-model="name" placeholder="Enter ch name"></b-form-input>
       <b-form-input v-model="quantity" placeholder="Enter quantity"></b-form-input>
       <b-form-input v-model="quantityType" placeholder="Enter quantity Type"></b-form-input>
@@ -9,13 +9,13 @@
 
       
 
-      <b-button variant="success" @click="saveCh">Save</b-button>
+      <b-button variant="success" @click="saveFruit">Save</b-button>
     </b-card>
   </div>
 </template>
 
 <script>
-
+ 
 import axios from 'axios';
 export default {
   
@@ -37,12 +37,12 @@ export default {
 
   },
   methods: {
-    getChById() {
+    getFruitById() {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
 
-      axios.get("ch/" + this.id, {
+      axios.get("fruit/" + this.id, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
@@ -63,7 +63,7 @@ export default {
           alert("failed");
         });
     },
-    saveCh() {
+    saveFruit() {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64'); 
@@ -78,7 +78,7 @@ export default {
        
       }
 
-      axios.put("ch/update" + this.id,params,
+      axios.put("fruit/update" + this.id,params,
          {
             headers: {
               'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ export default {
         })
         .then(() => {
           alert("success");
-          this.$router.push("/ch");
+          this.$router.push("/fruit");
         })
         .catch(() => {
           alert("failed");
