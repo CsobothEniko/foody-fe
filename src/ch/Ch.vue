@@ -1,37 +1,71 @@
-<template>
-  <div class="">
-    <a href="addCh">New Ch</a>
-    <b-list-group v-for="ch in ch" :key="ch.id">
-      <b-list-group-item>
-        Id: {{ ch.id }}
-        Name: {{ ch.name }}
-        Quantity: {{ ch.quantity }}
-        {{ ch.name }}
-        Calorie: {{ ch.calorie }}
-        Type: {{ ch.type }}
-    
-        <b-button variant="info" @click="editCh(ch.id)" class="mr-2">
-          Edit
-        </b-button>
-        <b-button variant="danger" @click="deleteCh(ch.id)">
-          Delete
-        </b-button>
-      </b-list-group-item>
-    </b-list-group>
-  </div>
-</template>
 
+<template>
+
+  <div class="mt-5">
+
+  <button type="button" class="btn btn-primary m-1 fload-end" id="show-modal" @click=addPage() >Add New</button>
+
+   <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name 
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Quantity Type
+                </th>
+                <th>
+                    Calorie
+                </th>
+                <th>
+                    Type
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="ch in ch" v-bind:key = "ch.id">
+                <td>{{ch.id}}</td>
+                <td>{{ch.name}}</td>
+                <td>{{ch.quantity}}</td>
+                <td>{{ch.quantityType}}</td>
+                <td>{{ch.calorie}}</td>
+                <td>{{ch.type}}</td>
+                <td>
+                    <button type="button" class="btn btn-light mr-1" @click="edit(ch.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                        </svg>
+                    </button>
+                     <button type="button" class="btn btn-light mr-1" @click="deleteCh(ch.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                    </svg>
+                    </button>
+                </td>
+                
+
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</template>
+ 
 <script>
 import axios from 'axios';
 export default {
   data() {
     return {
-      ch: [],
+      ch: []
     };
   },
   created() {
-   
-
     this.updateList();
   },
   methods: {
@@ -40,24 +74,21 @@ export default {
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
 
-      axios.get('http://localhost:8080/ch/list', {
-            headers: {
+     axios.get('ch/list', { headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
-             }            
-        })
-        .then((response) => {
-          this.ch = response.data;
-        });
+             }}).then((response) => {
+                 this.ch = response.data;
+             });
     },
-    editCh(id) {
+    edit(id) {
       this.$router.push("editCh/" + id)
     },
     deleteCh(id) {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
-
+      
       axios.delete("ch/" + id,{ headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
@@ -70,6 +101,9 @@ export default {
           alert("failed");
         });
     },
+    addPage(){
+      this.$router.push("addCh")
+    }
   },
 };
 </script>

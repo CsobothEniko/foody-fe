@@ -1,7 +1,21 @@
 <template>
 <div>
-    <h1 v-if="username">Hello, {{username}}</h1>
-    <h1 v-if="!username">You are not logged in!</h1>
+    <!--<h1 v-if="username">Hello, {{username}}</h1>
+    <h1 v-if="!username">You are not logged in!</h1>-->
+    <div class="m-5" v-if="!username">
+
+        <button class="mr-2" @click=login() >Login </button>
+        <button @click=registration() >Registration </button>
+
+    </div>
+
+    <div class="m-5" v-if="username">
+
+        <button class="mr-2" @click=crud() >Create your foods</button>
+        <button @click=plan() >Go to plan </button>
+
+    </div>
+    
 </div>
 </template>
 
@@ -13,47 +27,22 @@ export default {
     name: 'Home',
     computed: {
         ...mapGetters(['username'])
-    }
-    //ez nem kell(props) , ha van a computed mapgetters!!
-    // props: ['username']
-    /*data(){
-        return {
-            username: null
-        }
     },
-    async created(){
-        const username = localStorage.getItem('username');
-        const password = localStorage.getItem('password');*/
-        
-
-       // const username = 'csoboth';
-        //const password = '123456';
-        //let users = [{ id: 1, username: 'csoboth', password: '123456', firstName: 'Test', lastName: 'User' }];
-        //let user = users[0];
-
-        /*let responseJson = {
-                            id:user.id,
-                            username: user.username,
-                            firstName: user.firstName,
-                            lastName: user.lastName
-                        };
-        let res = JSON.stringify(responseJson);*/
-        //const auth = window.btoa(username + ':' + password);
-
-        /*const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
-        
-
-        const response = await axios.get('ch/random',{
-
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Basic '+token
-             }
-            
-        });
-        console.log(response);
-        this.username = username;
-    }*/
+    methods:{
+        login(){
+            this.$router.push("login")
+        },
+        registration(){
+            this.$router.push("registration")
+        },
+        crud(){
+            this.$router.push("mainCrud")
+        },
+        plan(){
+            this.$router.push("plan")
+        }
+    }
+    
 }
 
 

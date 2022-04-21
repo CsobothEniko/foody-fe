@@ -1,5 +1,5 @@
 <template>
-<form @submit.prevent="handleSubmit">
+<form class="mt-5" @submit.prevent="handleSubmit">
     <h3> Registration </h3>
 
     <div class="form-group">

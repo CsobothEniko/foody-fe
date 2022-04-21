@@ -1,13 +1,19 @@
 <template>
   <div class="mt-5">
     <b-card title="Add new">
-      <b-form-input v-model="name" placeholder="Enter name"></b-form-input>
-      <b-form-input v-model="quantity" placeholder="Enter quantity"></b-form-input>
-      <b-form-input v-model="quantityType" placeholder="Enter quantity type"></b-form-input>
-      <b-form-input v-model="calorie" placeholder="Enter calorie"></b-form-input>
-      <b-form-input v-model="type" placeholder="Enter type"></b-form-input>
-
+      <b-form-input class="mb-2" v-model="name" placeholder="Enter name"></b-form-input>
+      <b-form-input class="mb-2" v-model="quantity" placeholder="Enter quantity"></b-form-input>
+      <b-form-input class="mb-2" v-model="quantityType" placeholder="Enter quantity type"></b-form-input>
+      <b-form-input class="mb-2" v-model="calorie" placeholder="Enter calorie"></b-form-input>      
+        <select required class="mb-2" v-model="type">
+          <option value="" disabled selected hidden>Choose type...</option>
+          <option value="breakfast">BREAKFAST</option>
+          <option value="lunch">LUNCH</option>
+          <option value="dinner">DINNER</option>
+        </select>
       
+
+      <br/>
       <b-button variant="success" @click="saveFruit">Save</b-button>
     </b-card>
   </div>

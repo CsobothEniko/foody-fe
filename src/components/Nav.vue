@@ -16,11 +16,7 @@
           <ul class="navbar-nav ml-auto" v-if="username">
             <li class="nav-item">
               <a href="javascript:void(0)" @click="handleClick" class="nav-link">Logout</a>
-            </li> 
-            
-            <li class="nav-item">
-              <router-link to="/getProtein" class="nav-link">Protein</router-link>
-            </li>           
+            </li>       
             
           </ul> 
 

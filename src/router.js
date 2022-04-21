@@ -9,11 +9,23 @@ import AddCh from './ch/AddCh.vue';
 import EditCh from './ch/EditCh.vue';
 
 import Protein from './protein/Protein.vue';
-import GetProtein from './protein/GetProtein.vue';
+import EditProtein from './protein/EditProtein.vue';
+import AddProtein from './protein/AddProtein.vue';
 
 import Fruit from './fruit/Fruit.vue';
 import AddFruit from './fruit/AddFruit.vue';
 import EditFruit from './fruit/EditFruit.vue';
+
+import Fat from './fat/Fat.vue';
+import AddFat from './fat/AddFat.vue';
+import EditFat from './fat/EditFat.vue';
+
+import Vegetable from './vegetable/Vegetable.vue';
+import AddVegetable from './vegetable/AddVegetable.vue';
+import EditVegetable from './vegetable/EditVegetable.vue';
+
+import MainCrud from './components/MainCrud.vue';
+import Plan from './plan/Plan.vue';
 
 Vue.use(Router);
 
@@ -30,10 +42,23 @@ export default new Router({
         {path: "/ch",name: "Ch", component: Ch},
 
         {path: "/protein",name: "protein", component: Protein},
-        {path: "/getProtein",name: "getProtein", component: GetProtein},
+        {path: "/addProtein",name: "addProtein", component: AddProtein},
+        {path: "/editProtein/:id",name: "editProtein", component: EditProtein},
 
         {path: "/fruit",name: "fruit", component: Fruit},
         {path: "/editFruit/:id",name: "editFruit", component: EditFruit},
-        {path: "/addFruit",name: "addFruit", component: AddFruit}
+        {path: "/addFruit",name: "addFruit", component: AddFruit},
+
+        {path: "/fat",name: "fat", component: Fat},
+        {path: "/editFat/:id",name: "editFat", component: EditFat},
+        {path: "/addFat",name: "addFat", component: AddFat},
+
+        {path: "/vegetable",name: "vegetable", component: Vegetable},
+        {path: "/editVegetable/:id",name: "editVegetable", component: EditVegetable},
+        {path: "/addVegetable",name: "addVegetable", component: AddVegetable},
+
+        {path: "/mainCrud",name: "mainCrud", component: MainCrud},
+
+        {path: "/plan",name: "plan", component: Plan},
     ]
 })

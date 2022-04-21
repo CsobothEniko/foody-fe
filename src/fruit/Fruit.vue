@@ -1,29 +1,11 @@
 
 <template>
-  <!--<div>
-    <a href="fruit">New Fruit</a>
-    <b-list-group v-for="fruit in fruits" :key="fruit.id">
-      <b-list-group-item>
-        Id: {{fruit.id}}
-        Name: {{ fruit.name }}
-        <small class="text-secondary"> Quantity: {{ fruit.quantity }} </small>
-        <small class="text-secondary"> Quantity Type: {{ fruit.quantityType }} </small>
-        <small class="text-secondary"> Calorie: {{ fruit.calorie }} </small>
-        <small class="text-secondary"> Type: {{ fruit.type }} </small>
-        <b-button variant="info" @click="editFruit(fruit.id)" class="mr-2">
-          Edit
-        </b-button>
-        <b-button variant="danger" @click="deleteFruit(fruit.id)">
-          Delete
-        </b-button>
-      </b-list-group-item>
-    </b-list-group>
-  </div>-->
+
   <div class="mt-5">
 
-  <button type="button" class="btn btn-primary m-2 fload-end" id="show-modal" @click=addPage() >Add Protein</button>
+  <button type="button" class="btn btn-primary m-1 fload-end" id="show-modal" @click=addPage() >Add New</button>
 
-   <table class="table table-striped mt-5">
+   <table class="table table-striped mt-3">
         <thead>
             <tr>
                 <th>

@@ -1,7 +1,7 @@
 <template>
   <div class="mt-5">
     <b-card :title="'Edit with id of ' + id">
-      <b-form-input class="mb-2" v-model="name" placeholder="Enter ch name"></b-form-input>
+      <b-form-input class="mb-2" v-model="name" placeholder="Enter name"></b-form-input>
       <b-form-input class="mb-2" v-model="quantity" placeholder="Enter quantity"></b-form-input>
       <b-form-input class="mb-2" v-model="quantityType" placeholder="Enter quantity Type"></b-form-input>
       <b-form-input class="mb-2" v-model="calorie" placeholder="Enter calorie"></b-form-input>
@@ -12,9 +12,9 @@
           <option value="dinner">DINNER</option>
         </select>
 
-      <br/>
+      <br/> 
 
-      <b-button variant="success" @click="saveFruit">Save</b-button>
+      <b-button variant="success" @click="save">Save</b-button>
     </b-card>
   </div>
 </template>
@@ -38,16 +38,16 @@ export default {
   },
   created() {
     this.id = this.$route.params.id;
-    this.getFruitById();    
+    this.getById();    
 
   },
   methods: {
-    getFruitById() {
+    getById() {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
 
-      axios.get("fruit/" + this.id, {
+      axios.get("fat/" + this.id, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
@@ -68,7 +68,7 @@ export default {
           alert("failed");
         });
     },
-    saveFruit() {
+    save() {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64'); 
@@ -83,7 +83,7 @@ export default {
        
       }
 
-      axios.put("fruit/update/" + this.id,params,
+      axios.put("fat/update/" + this.id,params,
          {
             headers: {
               'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export default {
         })
         .then(() => {
           alert("success");
-          this.$router.push("/fruit");
+          this.$router.push("/fat");
         })
         .catch(() => {
           alert("failed");

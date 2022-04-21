@@ -1,5 +1,5 @@
 <template>
-<form @submit.prevent="handleSubmit">
+<form class="mt-5" @submit.prevent="handleSubmit">
     <h3> Login </h3>
 
     <div class="form-group">
@@ -14,10 +14,10 @@
 
     <button class="btn btn-primary btn-block">Login </button>
 
-    <p class="forgot-password text-right">
+    <!-- <p class="forgot-password text-right">
         <router-link to="forgot"> Forgot Password </router-link>
        
-    </p>
+    </p>-->
 </form>
 
 </template>

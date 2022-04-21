@@ -47,7 +47,7 @@ export default {
        
       }
 
-      axios.post("ch",params,{
+      axios.post("fat",params,{
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
@@ -55,7 +55,7 @@ export default {
         })
         .then(() => {
           alert("success");
-          this.$router.push("ch");
+          this.$router.push("fat");
         })
         .catch(() => {
           alert("failed");

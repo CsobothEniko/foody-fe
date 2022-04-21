@@ -1,21 +1,26 @@
 <template>
-  <div>
-    <b-card :title="'Edit ch with id of ' + id">
-      <b-form-input v-model="name" placeholder="Enter ch name"></b-form-input>
-      <b-form-input v-model="quantity" placeholder="Enter quantity"></b-form-input>
-      <b-form-input v-model="quantityType" placeholder="Enter quantity Type"></b-form-input>
-      <b-form-input v-model="calorie" placeholder="Enter calorie"></b-form-input>
-      <b-form-input v-model="type" placeholder="Enter type"></b-form-input>
+  <div class="mt-5">
+    <b-card :title="'Edit with id of ' + id">
+      <b-form-input class="mb-2" v-model="name" placeholder="Enter name"></b-form-input>
+      <b-form-input class="mb-2" v-model="quantity" placeholder="Enter quantity"></b-form-input>
+      <b-form-input class="mb-2" v-model="quantityType" placeholder="Enter quantity Type"></b-form-input>
+      <b-form-input class="mb-2" v-model="calorie" placeholder="Enter calorie"></b-form-input>
+      <select required class="mb-2" v-model="type">
+          <option value="" disabled selected hidden>Choose type...</option>
+          <option value="breakfast">BREAKFAST</option>
+          <option value="lunch">LUNCH</option>
+          <option value="dinner">DINNER</option>
+        </select>
 
-      
+      <br/> 
 
-      <b-button variant="success" @click="saveCh">Save</b-button>
+      <b-button variant="success" @click="save">Save</b-button>
     </b-card>
   </div>
 </template>
 
 <script>
-
+ 
 import axios from 'axios';
 export default {
   
@@ -33,11 +38,11 @@ export default {
   },
   created() {
     this.id = this.$route.params.id;
-    this.getChById();    
+    this.getById();    
 
   },
   methods: {
-    getChById() {
+    getById() {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
@@ -63,7 +68,7 @@ export default {
           alert("failed");
         });
     },
-    saveCh() {
+    save() {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64'); 
@@ -78,7 +83,7 @@ export default {
        
       }
 
-      axios.put("ch/update" + this.id,params,
+      axios.put("ch/update/" + this.id,params,
          {
             headers: {
               'Content-Type': 'application/json',
