@@ -4,6 +4,7 @@ import Home from './components/Home.vue';
 import Login from './components/Login.vue';
 import Registration from './components/Registration.vue';
 import Forgot from './components/Forgot.vue';
+
 import Ch from './ch/Ch.vue';
 import AddCh from './ch/AddCh.vue';
 import EditCh from './ch/EditCh.vue';
@@ -26,6 +27,9 @@ import EditVegetable from './vegetable/EditVegetable.vue';
 
 import MainCrud from './components/MainCrud.vue';
 import Plan from './plan/Plan.vue';
+import Breakfast from './plan/Breakfast.vue';
+import Lunch from './plan/Lunch.vue';
+import Dinner from './plan/Dinner.vue';
 
 Vue.use(Router);
 
@@ -58,6 +62,10 @@ export default new Router({
         {path: "/addVegetable",name: "addVegetable", component: AddVegetable},
 
         {path: "/mainCrud",name: "mainCrud", component: MainCrud},
+
+        {path: "/breakfast",name: "breakfast", component: Breakfast},
+        {path: "/lunch",name: "lunch", component: Lunch},
+        {path: "/dinner",name: "dinner", component: Dinner},
 
         {path: "/plan",name: "plan", component: Plan},
     ]

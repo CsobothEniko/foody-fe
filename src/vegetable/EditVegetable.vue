@@ -47,7 +47,7 @@ export default {
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
 
-      axios.get("fat/" + this.id, {
+      axios.get("vegetable/" + this.id, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Basic '+token
@@ -83,7 +83,7 @@ export default {
        
       }
 
-      axios.put("fat/update/" + this.id,params,
+      axios.put("vegetable/update/" + this.id,params,
          {
             headers: {
               'Content-Type': 'application/json',
