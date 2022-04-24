@@ -1,13 +1,17 @@
 <template>
-<div class="mt-5">
-    <button @click=getPlan()>Generate your plan</button>
+<div  class="container my-5">
+<div class="mt-5 btn-group-vertical col-md-12 text-center">
+    <button type="button" class="btn btn-primary m-1 fload-end" @click=getPlan()>Generate your plan</button>
 
-    <button @click=getBreakfast()>Breakfast</button>
-    <button @click=getLunch()>Lunch</button>
-    <button @click=getDinner()>Dinner</button>
+    <button type="button" class="btn btn-primary m-1 fload-end" @click=getBreakfast()>Breakfast</button>
+    <button type="button" class="btn btn-primary m-1 fload-end" @click=getLunch()>Lunch</button>
+    <button type="button" class="btn btn-primary m-1 fload-end" @click=getDinner()>Dinner</button>
 
-    <button @click=goBack()>Back</button>
+    <button type="button" class="btn btn-primary m-1 fload-end" @click=getSum()>Sum</button>
 
+    <button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
+
+</div>
 </div>
 </template>
 <script>
@@ -50,6 +54,7 @@ export default {
                 }}).then((response) => {
                     console.log("Plan generated!");
                 });
+        alert("Yout plan is done!!!");
              
         },
         getBreakfast(){
@@ -63,6 +68,9 @@ export default {
         },
         goBack(){
             this.$router.push("/")
+        },
+        getSum(){
+
         }
     }
 }

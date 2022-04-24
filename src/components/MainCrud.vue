@@ -1,10 +1,14 @@
 <template>
-<div>
-<button class="m-5" @click=ch() >CH</button>
-<button @click=protein() >PROTEIN</button>
-<button @click=fat() >FAT</button>
-<button @click=fruit() >FRUIT</button>
-<button @click=vegetable() >VEGETABLE</button>
+<div class="container my-5">
+<div class="mt-5 btn-group-vertical col-md-12 text-center ">
+<button type="button" class="btn btn-primary m-1 fload-end" @click=ch() >CH</button>
+<button type="button" class="btn btn-primary m-1 fload-end" @click=protein() >PROTEIN</button>
+<button type="button" class="btn btn-primary m-1 fload-end" @click=fat() >FAT</button>
+<button type="button" class="btn btn-primary m-1 fload-end" @click=fruit() >FRUIT</button>
+<button type="button" class="btn btn-primary m-1 fload-end" @click=vegetable() >VEGETABLE</button>
+
+<button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
+</div>
 </div>
 
     
@@ -29,6 +33,9 @@ export default {
         },
         vegetable(){
             this.$router.push("/vegetable");
+        },
+        goBack(){
+            this.$router.push("/")
         }
     }
 }

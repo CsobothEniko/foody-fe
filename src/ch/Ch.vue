@@ -3,10 +3,12 @@
 
   <div class="mt-5">
 
+  <button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
+
   <button type="button" class="btn btn-primary m-1 fload-end" id="show-modal" @click=addPage() >Add New</button>
 
    <table class="table table-striped mt-3">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>
                     Id
@@ -26,6 +28,7 @@
                 <th>
                     Type
                 </th>
+                <th></th>
                 
             </tr>
         </thead>
@@ -103,7 +106,10 @@ export default {
     },
     addPage(){
       this.$router.push("addCh")
-    }
+    },
+    goBack(){
+            this.$router.push("/mainCrud")
+        }
   },
 };
 </script>

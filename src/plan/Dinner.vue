@@ -1,10 +1,10 @@
 <template>
 <div class="mt-5">
    <h1>Dinner page</h1>
-   <button @click=goBack()>Back</button>
+   <button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
 
    <table class="table table-striped mt-3">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>
                     Ch

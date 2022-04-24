@@ -1,11 +1,14 @@
 <template>
 <div class="mt-5">
    <h1>Breakfast page</h1>
-   <button @click=goBack()>Back</button>
-
+   <button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
+<div class="table-responsive">
    <table class="table table-striped mt-3">
-        <thead>
+        <thead class="thead-dark">
             <tr>
+                <th>
+                    Day
+                </th>
                 <th>
                     Ch
                 </th>
@@ -31,7 +34,9 @@
             </tr>
         </thead>
         <tbody>
+            
             <tr v-for="breakfast in breakfast" v-bind:key = "breakfast.id">
+                <td>days[1]</td>
                 <td>{{breakfast.ch}}</td>
                 <td>{{breakfast.fat}}</td>
                 <td>{{breakfast.protein}}</td>
@@ -41,8 +46,11 @@
                 <td>{{breakfast.vitamin2}}</td>             
 
             </tr>
+            
         </tbody>
     </table>
+
+    </div>
 </div>
     
 </template>
@@ -52,7 +60,8 @@ export default {
    name:'Breakfast',
     data() {
     return {
-      breakfast: []
+      breakfast: [],
+      days:['Monday', 'Tuesday','Wednesday','Thursday','Friday', 'Saturday', 'Sunday']
     }
    
   },

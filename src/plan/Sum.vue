@@ -1,10 +1,11 @@
 <template>
-<div class="mt-5">
+    <div class="mt-5">
    <h1>Lunch page</h1>
-   <button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
+   <button @click=goBack()>Back</button>
 
-    <table class="table table-striped mt-3">
-        <thead class="thead-dark">
+<div class="table-responsive-sm">
+    <table class="table">
+        <thead>
             <tr>
                 <th>
                     Ch
@@ -26,8 +27,7 @@
                 </th>       
                 <th>
                     Second Vitamin
-                </th>
-                        
+                </th>            
                 
             </tr>
         </thead>
@@ -44,39 +44,15 @@
             </tr>
         </tbody>
     </table>
+    </div>
 </div>
-    
 </template>
+
 <script>
-import axios from 'axios';
 export default {
-   name:'Lunch',
-   data() {
-    return {
-      lunch: []
-    }
-   
-  },
-   created(){
-         this.updateList();
-      },
-   methods:{
-      goBack(){
-            this.$router.push("/plan");
-        },
-      updateList() {
-      const username = localStorage.getItem('username');
-      const password = localStorage.getItem('password');
-      const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64');
+    name:'Sum',
+    methods:{
 
-      axios.get('/lunchV/weekly', { headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Basic '+token
-             }}).then((response) => {
-                 this.lunch = response.data;
-             });
     }
-
-   }
 }
 </script>
