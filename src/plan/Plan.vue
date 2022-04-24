@@ -70,7 +70,7 @@ export default {
             this.$router.push("/")
         },
         getSum(){
-
+            this.$router.push("/sum")
         }
     }
 }

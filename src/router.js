@@ -30,6 +30,7 @@ import Plan from './plan/Plan.vue';
 import Breakfast from './plan/Breakfast.vue';
 import Lunch from './plan/Lunch.vue';
 import Dinner from './plan/Dinner.vue';
+import Sum from './plan/Sum.vue';
 
 Vue.use(Router);
 
@@ -68,5 +69,6 @@ export default new Router({
         {path: "/dinner",name: "dinner", component: Dinner},
 
         {path: "/plan",name: "plan", component: Plan},
+        {path: "/sum",name: "sum", component: Sum},
     ]
 })
