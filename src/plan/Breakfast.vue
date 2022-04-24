@@ -35,8 +35,9 @@
         </thead>
         <tbody>
             
-            <tr v-for="breakfast in breakfast" v-bind:key = "breakfast.id">
-                <td>days[1]</td>
+            
+            <tr v-for="(breakfast,index) in breakfast" v-bind:key = "breakfast.id">
+                <td>{{days[index]}}</td>
                 <td>{{breakfast.ch}}</td>
                 <td>{{breakfast.fat}}</td>
                 <td>{{breakfast.protein}}</td>
@@ -44,7 +45,6 @@
                 <td>{{breakfast.vegetable}}</td>
                 <td>{{breakfast.vitamin1}}</td>    
                 <td>{{breakfast.vitamin2}}</td>             
-
             </tr>
             
         </tbody>
@@ -61,7 +61,7 @@ export default {
     data() {
     return {
       breakfast: [],
-      days:['Monday', 'Tuesday','Wednesday','Thursday','Friday', 'Saturday', 'Sunday']
+      days:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
     }
    
   },

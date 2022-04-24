@@ -7,6 +7,9 @@
         <thead class="thead-dark">
             <tr>
                 <th>
+                    Day
+                </th>
+                <th>
                     Ch
                 </th>
                 <th>
@@ -28,7 +31,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="dinner in dinner" v-bind:key = "dinner.id">
+            <tr v-for="(dinner,index) in dinner" v-bind:key = "dinner.id">
+                <td>{{days[index]}}</td>
                 <td>{{dinner.ch}}</td>
                 <td>{{dinner.fat}}</td>
                 <td>{{dinner.protein}}</td>
@@ -47,7 +51,8 @@ export default {
    name:'Dinner',
    data() {
     return {
-      dinner: []
+      dinner: [],
+      days:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
     }
    
   },
