@@ -1,14 +1,13 @@
-
 <template>
 
   <div class="mt-5">
 
-  <button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
+  <button type="button" class="btn btn-secondary m-1 fload-end" @click=goBack()>Back</button>
 
-  <button type="button" class="btn btn-primary m-1 fload-end" id="show-modal" @click=addPage() >Add New</button>
+  <button type="button" class="btn btn-secondary m-1 fload-end" id="show-modal" @click=addPage() >Add New</button>
 
    <table class="table table-striped mt-3">
-        <thead class="thead-dark">
+        <thead class="">
             <tr>
                 <th>
                     Id
@@ -32,6 +31,7 @@
                 
             </tr>
         </thead>
+
         <tbody>
             <tr v-for="protein in proteins" v-bind:key = "protein.id">
                 <td>{{protein.id}}</td>
@@ -52,8 +52,6 @@
                     </svg>
                     </button>
                 </td>
-                
-
             </tr>
         </tbody>
     </table>
