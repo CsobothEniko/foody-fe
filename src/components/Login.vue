@@ -1,18 +1,29 @@
 <template>
 <form class="mt-5" @submit.prevent="handleSubmit">
-    <h3> Login </h3>
+    
+    <div class="container my-4 text-center ">
 
-    <div class="form-group">
-        <label> Username </label>
-        <input type="username" class="form-control" v-model="username" placeholder="Username" />
+        <h3 class="py-4"> Login </h3>
+        <div class="form-group mt-3 text-md-left">
+            <label > Username </label>
+            <input type="username" class="form-control" v-model="username" placeholder="Username" />
+        </div>
+
+        <div class="form-group text-md-left">
+            <label> Password </label>
+            <input type="password" class="form-control" v-model="password" placeholder="Password" />
+        </div>
+
+        
+        <button class="mt-5 btn btn-secondary btn-block">Login </button>
+        
+        
+
     </div>
 
-    <div class="form-group">
-        <label> Password </label>
-        <input type="password" class="form-control" v-model="password" placeholder="Password" />
-    </div>
-
-    <button class="btn btn-primary btn-block">Login </button>
+    
+    
+    
 
     <!-- <p class="forgot-password text-right">
         <router-link to="forgot"> Forgot Password </router-link>

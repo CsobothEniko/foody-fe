@@ -1,28 +1,36 @@
 <template>
 <form class="mt-5" @submit.prevent="handleSubmit">
-    <h3> Registration </h3>
 
-    <div class="form-group">
+<div class="container my-4 text-center ">
+    <h3 class="py-4"> Registration </h3>
+
+    <div class="form-group text-md-left">
         <label> Name </label>
         <input type="name" class="form-control" v-model="name" placeholder="name" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group text-md-left">
         <label> Username </label>
         <input type="username" class="form-control" v-model="username" placeholder="Username" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group text-md-left">
         <label> Email </label>
         <input type="email" class="form-control" v-model="email" placeholder="email" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group text-md-left">
         <label> Password </label>
         <input type="password" class="form-control" v-model="password" placeholder="Password" />
     </div>    
 
-    <button class="btn btn-primary btn-block">Registration </button>
+    <button class=" mt-5 btn btn-secondary btn-block" @click=handleSubmit()>Registration </button>
+
+    <!--<button class=" mt-2 btn btn-secondary btn-block" @click=goBack()>Back </button>-->
+
+
+</div>
+    
 </form>
 
 </template>
@@ -79,6 +87,9 @@ export default {
             this.$router.push('/login');
 
            
+        },
+         goBack(){
+            this.$router.push("/")
         }
     }
 }
