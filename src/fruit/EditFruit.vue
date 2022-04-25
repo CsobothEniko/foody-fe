@@ -5,7 +5,8 @@
       <b-form-input class="mb-2" v-model="quantity" placeholder="Enter quantity"></b-form-input>
       <b-form-input class="mb-2" v-model="quantityType" placeholder="Enter quantity Type"></b-form-input>
       <b-form-input class="mb-2" v-model="calorie" placeholder="Enter calorie"></b-form-input>
-      <select required class="mb-2" v-model="type">
+
+      <select required class="mb-2 form-control" v-model="type">
           <option value="" disabled selected hidden>Choose type...</option>
           <option value="breakfast">BREAKFAST</option>
           <option value="lunch">LUNCH</option>
@@ -14,7 +15,9 @@
 
       <br/>
 
-      <b-button variant="success" @click="saveFruit">Save</b-button>
+      <button  class="btn btn-secondary m-1 fload-end" type="button" variant="success" @click="saveFruit">Save</button>
+      <button  class="btn btn-secondary m-1 fload-end" type="button"  @click=goBack()>Back</button>
+
     </b-card>
   </div>
 </template>
@@ -72,7 +75,7 @@ export default {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
       const token = Buffer.from(`${username}:${password}`, 'utf8').toString('base64'); 
-
+ 
       let params = {
         id: this.id,
         name: this.name,
@@ -97,7 +100,10 @@ export default {
         .catch(() => {
           alert("failed");
         });
-    }
+    },
+    goBack(){
+            this.$router.push("/fruit") 
+        }
   },
 };
 </script>

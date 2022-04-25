@@ -6,7 +6,7 @@
 
     <div class="form-group text-md-left">
         <label> Name </label>
-        <input type="name" class="form-control" v-model="name" placeholder="name" />
+        <input type="name" class="form-control" v-model="name" placeholder="Name" />
     </div>
 
     <div class="form-group text-md-left">
@@ -16,7 +16,7 @@
 
     <div class="form-group text-md-left">
         <label> Email </label>
-        <input type="email" class="form-control" v-model="email" placeholder="email" />
+        <input type="email" class="form-control" v-model="email" placeholder="Email" />
     </div>
 
     <div class="form-group text-md-left">

@@ -11,15 +11,17 @@
           <option value="lunch">LUNCH</option>
           <option value="dinner">DINNER</option>
         </select>
-       
-
+      
       <br/>
-      <b-button variant="success" @click="save">Save</b-button>
+      
+      <button  class="btn btn-secondary m-1 fload-end" type="button" variant="success" @click="save">Save</button>
+      <button  class="btn btn-secondary m-1 fload-end" type="button"  @click=goBack()>Back</button>
+
     </b-card>
   </div>
 </template>
  
-<script>
+<script> 
 import axios from 'axios';
 export default {
   data() {
@@ -61,6 +63,9 @@ export default {
           alert("failed");
         });
     },
+    goBack(){ 
+            this.$router.push("/protein") 
+        }
   },
 };
 </script>

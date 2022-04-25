@@ -1,7 +1,7 @@
 <template>
 <div class="mt-5">
    <h1>Breakfast page</h1>
-   <button type="button" class="btn btn-primary m-1 fload-end" @click=goBack()>Back</button>
+   <button type="button" class="btn btn-secondary m-1 fload-end" @click=goBack()>Back</button>
 <div class="table-responsive">
    <table class="table table-striped mt-3">
         <thead class="thead-dark">

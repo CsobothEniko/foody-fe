@@ -3,7 +3,7 @@
         <div class="mt-5 btn-group-vertical col-md-7 text-center">
             
             <button type="button" class="btn btn-secondary m-1 fload-end" @click=getPlan()>Generate your plan</button>
-            <button type="button" class="btn btn-secondary m-1 fload-end" @click=getBreakfast()>Breakfast</button>
+            <button type="button" class="btn btn-secondary m-1 mt-4 fload-end" @click=getBreakfast()>Breakfast</button>
             <button type="button" class="btn btn-secondary m-1 fload-end" @click=getLunch()>Lunch</button>
             <button type="button" class="btn btn-secondary m-1 fload-end" @click=getDinner()>Dinner</button>
             <button type="button" class="btn btn-secondary m-1 fload-end" @click=getSum()>Sum</button>
@@ -16,7 +16,7 @@
 <script>
 import axios from 'axios';
 export default {
-    name: 'Plan',
+    name: 'Plan', 
     methods:{
         getPlan(){
 

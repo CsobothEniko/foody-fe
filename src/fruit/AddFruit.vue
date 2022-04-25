@@ -4,17 +4,19 @@
       <b-form-input class="mb-2" v-model="name" placeholder="Enter name"></b-form-input>
       <b-form-input class="mb-2" v-model="quantity" placeholder="Enter quantity"></b-form-input>
       <b-form-input class="mb-2" v-model="quantityType" placeholder="Enter quantity type"></b-form-input>
-      <b-form-input class="mb-2" v-model="calorie" placeholder="Enter calorie"></b-form-input>      
-        <select required class="mb-2" v-model="type">
+      <b-form-input class="mb-2" v-model="calorie" placeholder="Enter calorie"></b-form-input>  
+
+        <select required class="mb-2 form-control" v-model="type">
           <option value="" disabled selected hidden>Choose type...</option>
           <option value="breakfast">BREAKFAST</option>
           <option value="lunch">LUNCH</option>
           <option value="dinner">DINNER</option>
         </select>
-      
+        
+      <br/> 
+      <button  class="btn btn-secondary m-1 fload-end" type="button" variant="success" @click="saveFruit">Save</button>
+      <button  class="btn btn-secondary m-1 fload-end" type="button"  @click=goBack()>Back</button>
 
-      <br/>
-      <b-button variant="success" @click="saveFruit">Save</b-button>
     </b-card>
   </div>
 </template>
@@ -61,6 +63,9 @@ export default {
           alert("failed");
         });
     },
+    goBack(){ 
+            this.$router.push("/fruit") 
+        }
   },
 };
 </script>
